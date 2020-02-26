@@ -1,0 +1,2 @@
+ssh -o 'IdentitiesOnly yes' packer@192.168.0.118
+# password: packer
