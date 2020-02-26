@@ -59,7 +59,7 @@ cd ..
 You can ssh onto a host by running:
 
 ```bash
-ssh -o 'IdentitiesOnly yes' packer@192.168.0.118
+ssh -o 'IdentitiesOnly yes' packer@10.10.125.108
 # password: packer
 ```
 
@@ -69,27 +69,27 @@ Take the IP Address of the server deployment and run Nomad jobs:
 
 ```bash
 cd jobs
-nomad run -address http://192.168.0.118:4646 redis-job.nomad
-nomad run -address http://192.168.0.118:4646 echo-job.nomad
-nomad run -address http://192.168.0.118:4646 golang-redis-pg.nomad
-nomad run -address http://192.168.0.118:4646 raw.nomad
+nomad run -address http://10.10.125.108:4646 redis-job.nomad
+nomad run -address http://10.10.125.108:4646 echo-job.nomad
+nomad run -address http://10.10.125.108:4646 golang-redis-pg.nomad
+nomad run -address http://10.10.125.108:4646 raw.nomad
 cd ..
 ```
 
 You can view the logs of an `allocation`:
 
 ```bash
-nomad logs -address http://192.168.0.118:4646 bf90d9cb
+nomad logs -address http://10.10.125.108:4646 bf90d9cb
 ```
 
 At a later time, you can stop the nomad jobs (but first look at [the UI](#ui)):
 
 ```bash
 cd jobs
-nomad stop -address http://192.168.0.118:4646 Echo-Job
-nomad stop -address http://192.168.0.118:4646 Redis-Job
-nomad stop -address http://192.168.0.118:4646 Golang-Redis-PG
-nomad stop -address http://192.168.0.118:4646 view_files
+nomad stop -address http://10.10.125.108:4646 Echo-Job
+nomad stop -address http://10.10.125.108:4646 Redis-Job
+nomad stop -address http://10.10.125.108:4646 Golang-Redis-PG
+nomad stop -address http://10.10.125.108:4646 view_files
 cd ..
 ```
 
@@ -97,8 +97,8 @@ cd ..
 
 Using the IP Address of the server deployment, you can:
 
-- view the Nomad UI at: [http://192.168.0.118:4646/ui](http://192.168.0.118:4646/ui)
-- view the Consul UI at: [http://192.168.0.118:8500/ui](http://192.168.0.118:8500/ui)
+- view the Nomad UI at: [http://10.10.125.108:4646/ui](http://10.10.125.108:4646/ui)
+- view the Consul UI at: [http://10.10.125.108:8500/ui](http://10.10.125.108:8500/ui)
 
 ## HDFS
 
@@ -106,13 +106,13 @@ You can deploy HDFS by running:
 
 ```bash
 cd jobs
-nomad run -address http://192.168.0.118:4646 hdfs.nomad
+nomad run -address http://10.10.125.108:4646 hdfs.nomad
 cd ..
 ```
 
 (Give it a minute to download the docker image..)
 
-Then you can view the UI at: [http://192.168.0.118:50070/](http://192.168.0.118:50070/)
+Then you can view the UI at: [http://10.10.125.108:50070/](http://10.10.125.108:50070/)
 
 ## Spark
 
@@ -142,11 +142,11 @@ sqlDF.show()
 Init the Vault system and go through the process for 1 of the Vault servers
 
 ```bash
-vault init   -address http://192.168.0.118:8200
-vault unseal -address http://192.168.0.118:8200
-vault auth   -address=http://192.168.0.118:8200 66344296-222d-5be6-e052-15679209e0e7
-vault write  -address=http://192.168.0.118:8200 secret/names name=ryan
-vault read   -address=http://192.168.0.118:8200 secret/names
+vault init   -address http://10.10.125.108:8200
+vault unseal -address http://10.10.125.108:8200
+vault auth   -address=http://10.10.125.108:8200 66344296-222d-5be6-e052-15679209e0e7
+vault write  -address=http://10.10.125.108:8200 secret/names name=ryan
+vault read   -address=http://10.10.125.108:8200 secret/names
 ```
 
 Then unseal the other Vault servers for HA
