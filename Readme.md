@@ -152,8 +152,8 @@ vault read   -address=http://10.10.125.108:8200 secret/names
 Then unseal the other Vault servers for HA
 
 ```bash
-vault unseal -address http://192.168.0.125:8200
-vault unseal -address http://192.168.0.161:8200
+vault unseal -address http://10.10.125.107:8200
+vault unseal -address http://10.10.125.111:8200
 ```
 
 Then check Consul to see the health checks show that all the vault servers are unlocked
