@@ -1,6 +1,6 @@
 job "hdfs" {
 
-  datacenters = [ "dc-enverus-1" ]
+  datacenters = [ "dc-1" ]
 
   group "NameNode" {
 

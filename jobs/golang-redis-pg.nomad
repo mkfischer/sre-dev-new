@@ -1,5 +1,5 @@
 job "Golang-Redis-PG" {
-  datacenters = ["dc-enverus-1"]
+  datacenters = ["dc-1"]
 
   group "Golang-Group" {
     count = 1
@@ -9,9 +9,9 @@ job "Golang-Redis-PG" {
       
       env {
         GLP_LISTEN_PORT = 9998
-        GLP_REDIS_HOST = "RedisServer.service.dc-enverus-1.consul"
+        GLP_REDIS_HOST = "RedisServer.service.dc-1.consul"
         GLP_REDIS_PORT = 6379
-        GLP_PG_HOST = "PostgresServer.service.dc-enverus-1.consul"
+        GLP_PG_HOST = "PostgresServer.service.dc-1.consul"
         GLP_PG_PORT = 5432
         GLP_PG_USER = "postgres"
         GLP_PG_PASS = "password"

@@ -1,5 +1,5 @@
 job "Redis-Job" {
-  datacenters = ["dc-enverus-1"]
+  datacenters = ["dc-1"]
 
   group "Redis-Group" {
     task "Redis-Task" {

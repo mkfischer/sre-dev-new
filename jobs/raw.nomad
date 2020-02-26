@@ -1,6 +1,6 @@
 job "view_files" {
   type = "system"
-  datacenters = ["dc-enverus-1"]
+  datacenters = ["dc-1"]
 
   group "view_files"{
     restart {

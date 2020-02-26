@@ -1,5 +1,5 @@
 job "Echo-Job" {
-  datacenters = ["dc-enverus-1"]
+  datacenters = ["dc-1"]
 
   group "Echo-Group" {
     task "Echo-Task" {
